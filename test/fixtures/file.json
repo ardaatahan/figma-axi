@@ -1,0 +1,76 @@
+{
+  "name": "Marketing Site",
+  "role": "viewer",
+  "lastModified": "2026-08-12T09:30:00Z",
+  "editorType": "figma",
+  "thumbnailUrl": "https://example.invalid/thumb.png",
+  "version": "2140970771",
+  "schemaVersion": 0,
+  "document": {
+    "id": "0:0",
+    "name": "Document",
+    "type": "DOCUMENT",
+    "children": [
+      {
+        "id": "0:1",
+        "name": "Homepage",
+        "type": "CANVAS",
+        "backgroundColor": { "r": 0.96, "g": 0.96, "b": 0.96, "a": 1 },
+        "children": [
+          {
+            "id": "1:2",
+            "name": "Hero",
+            "type": "FRAME",
+            "absoluteBoundingBox": { "x": 0, "y": 0, "width": 1440, "height": 720 },
+            "layoutMode": "VERTICAL",
+            "itemSpacing": 24,
+            "paddingTop": 96,
+            "paddingBottom": 96,
+            "paddingLeft": 120,
+            "paddingRight": 120,
+            "fills": [{ "type": "SOLID", "color": { "r": 1, "g": 1, "b": 1, "a": 1 } }]
+          },
+          {
+            "id": "1:10",
+            "name": "Features",
+            "type": "FRAME",
+            "absoluteBoundingBox": { "x": 0, "y": 800, "width": 1440, "height": 960 },
+            "layoutMode": "HORIZONTAL",
+            "itemSpacing": 32,
+            "fills": []
+          },
+          {
+            "id": "1:20",
+            "name": "Footer",
+            "type": "FRAME",
+            "absoluteBoundingBox": { "x": 0, "y": 1840, "width": 1440, "height": 320 },
+            "fills": [{ "type": "SOLID", "color": { "r": 0.06, "g": 0.09, "b": 0.164706, "a": 1 } }]
+          }
+        ]
+      },
+      {
+        "id": "0:2",
+        "name": "Components",
+        "type": "CANVAS",
+        "backgroundColor": { "r": 0.96, "g": 0.96, "b": 0.96, "a": 1 },
+        "children": [
+          {
+            "id": "5:1",
+            "name": "Button/Primary",
+            "type": "COMPONENT",
+            "absoluteBoundingBox": { "x": 0, "y": 0, "width": 160, "height": 48 }
+          }
+        ]
+      }
+    ]
+  },
+  "components": {
+    "5:1": { "key": "abc123", "name": "Button/Primary", "description": "" }
+  },
+  "componentSets": {},
+  "styles": {
+    "9:1": { "key": "style1", "name": "Text/Heading", "styleType": "TEXT" },
+    "9:2": { "key": "style2", "name": "Color/Ink", "styleType": "FILL" }
+  },
+  "linkAccess": "inherit"
+}

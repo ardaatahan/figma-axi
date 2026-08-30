@@ -1,0 +1,78 @@
+{
+  "status": 200,
+  "error": false,
+  "meta": {
+    "variableCollections": {
+      "VariableCollectionId:1:100": {
+        "id": "VariableCollectionId:1:100",
+        "name": "Colors",
+        "key": "vc1",
+        "modes": [
+          { "modeId": "1:0", "name": "Light" },
+          { "modeId": "1:1", "name": "Dark" }
+        ],
+        "defaultModeId": "1:0",
+        "remote": false,
+        "hiddenFromPublishing": false,
+        "variableIds": ["VariableID:2:1", "VariableID:2:2"]
+      },
+      "VariableCollectionId:1:200": {
+        "id": "VariableCollectionId:1:200",
+        "name": "Spacing",
+        "key": "vc2",
+        "modes": [{ "modeId": "2:0", "name": "Mode 1" }],
+        "defaultModeId": "2:0",
+        "remote": false,
+        "hiddenFromPublishing": false,
+        "variableIds": ["VariableID:3:1"]
+      }
+    },
+    "variables": {
+      "VariableID:2:1": {
+        "id": "VariableID:2:1",
+        "name": "bg/surface",
+        "key": "v1",
+        "variableCollectionId": "VariableCollectionId:1:100",
+        "resolvedType": "COLOR",
+        "valuesByMode": {
+          "1:0": { "r": 1, "g": 1, "b": 1, "a": 1 },
+          "1:1": { "r": 0.06, "g": 0.09, "b": 0.164706, "a": 1 }
+        },
+        "remote": false,
+        "description": "Page background",
+        "hiddenFromPublishing": false,
+        "scopes": ["FRAME_FILL"],
+        "codeSyntax": {}
+      },
+      "VariableID:2:2": {
+        "id": "VariableID:2:2",
+        "name": "text/primary",
+        "key": "v2",
+        "variableCollectionId": "VariableCollectionId:1:100",
+        "resolvedType": "COLOR",
+        "valuesByMode": {
+          "1:0": { "type": "VARIABLE_ALIAS", "id": "VariableID:2:1" },
+          "1:1": { "r": 1, "g": 1, "b": 1, "a": 1 }
+        },
+        "remote": false,
+        "description": "",
+        "hiddenFromPublishing": false,
+        "scopes": ["TEXT_FILL"],
+        "codeSyntax": {}
+      },
+      "VariableID:3:1": {
+        "id": "VariableID:3:1",
+        "name": "space/md",
+        "key": "v3",
+        "variableCollectionId": "VariableCollectionId:1:200",
+        "resolvedType": "FLOAT",
+        "valuesByMode": { "2:0": 16 },
+        "remote": false,
+        "description": "",
+        "hiddenFromPublishing": false,
+        "scopes": ["GAP"],
+        "codeSyntax": { "WEB": "var(--space-md)" }
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "figma-axi",
+  "version": "0.1.0",
+  "description": "AXI-compliant CLI for the Figma REST API: read files, inspect nodes, export assets, and manage comments from the terminal.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ardaatahan/figma-axi.git"
+  },
+  "keywords": ["figma", "axi", "cli", "agent", "design", "export"],
+  "type": "module",
+  "bin": {
+    "figma-axi": "bin/figma-axi.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "files": [
+    "bin",
+    "dist",
+    "skills",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "pretest": "npm run build",
+    "test": "vitest run",
+    "skill:gen": "node scripts/gen-skill.mjs",
+    "skill:check": "node scripts/gen-skill.mjs --check"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.6.0",
+    "vitest": "^2.1.0"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "status": 200,
+  "error": false,
+  "meta": {
+    "components": [
+      {
+        "key": "abc123",
+        "file_key": "AbCdEf123456",
+        "node_id": "5:1",
+        "thumbnail_url": "https://example.invalid/c1.png",
+        "name": "Button/Primary",
+        "description": "Primary call to action",
+        "created_at": "2026-05-01T10:00:00Z",
+        "updated_at": "2026-08-01T10:00:00Z",
+        "user": { "id": "u1", "handle": "dana", "img_url": "https://example.invalid/u1.png" },
+        "containing_frame": {
+          "nodeId": "4:1",
+          "name": "Buttons",
+          "pageId": "0:2",
+          "pageName": "Components",
+          "containingComponentSet": { "nodeId": "4:0", "name": "Button" }
+        }
+      },
+      {
+        "key": "def456",
+        "file_key": "AbCdEf123456",
+        "node_id": "5:9",
+        "thumbnail_url": "https://example.invalid/c2.png",
+        "name": "Card, with shadow",
+        "description": "",
+        "created_at": "2026-05-01T10:00:00Z",
+        "updated_at": "2026-06-01T10:00:00Z",
+        "user": { "id": "u1", "handle": "dana", "img_url": "https://example.invalid/u1.png" },
+        "containing_frame": { "pageId": "0:2", "pageName": "Components" }
+      }
+    ]
+  }
+}
