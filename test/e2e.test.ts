@@ -126,6 +126,8 @@ describe("file", () => {
     const r = await run(["file", FILE_KEY, "--page", "Nope"]);
     expect(r.status).toBe(0);
     expect(r.stdout).toContain("0 pages matching 'Nope'");
+    expect(r.stdout).toContain("help[");
+    expect(r.stdout).toContain(`figma-axi file ${FILE_KEY}`);
   });
 
   it("maps a 404 to a structured error with the key hint", async () => {
@@ -220,6 +222,15 @@ describe("export", () => {
     const r = await run(["export", FILE_KEY, "--node", "1:2", "--format", "webp"]);
     expect(r.status).toBe(2);
     expect(r.stdout).toContain("png, svg, jpg, pdf");
+  });
+
+  it("rejects a stray extra positional instead of silently dropping it", async () => {
+    const before = mock.requests.length;
+    const r = await run(["export", FILE_KEY, "--node", "1:2", "--format", "png", "outputdir"]);
+    expect(r.status).toBe(2);
+    expect(r.stdout).toContain("unexpected argument");
+    expect(r.stdout).toContain("'outputdir'");
+    expect(mock.requests.length).toBe(before);
   });
 });
 
