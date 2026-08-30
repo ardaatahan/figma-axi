@@ -1,0 +1,20 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install
+      - run: npm run build
+      - run: npx vitest run
+      - run: npm run skill:check
+      - run: npx -y axi-axi validate "node bin/figma-axi.js" --dir . --timeout 30000

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "id": "101",
+      "client_meta": { "node_id": "1:2", "node_offset": { "x": 12, "y": 20 } },
+      "file_key": "AbCdEf123456",
+      "user": { "id": "u1", "handle": "dana", "img_url": "https://example.invalid/u1.png" },
+      "created_at": "2026-08-10T12:00:00Z",
+      "resolved_at": null,
+      "message": "Hero heading feels too tight, can we bump line-height?",
+      "order_id": "1",
+      "reactions": []
+    },
+    {
+      "id": "102",
+      "client_meta": { "x": 40, "y": 80 },
+      "file_key": "AbCdEf123456",
+      "parent_id": "101",
+      "user": { "id": "u2", "handle": "alex", "img_url": "https://example.invalid/u2.png" },
+      "created_at": "2026-08-11T09:00:00Z",
+      "resolved_at": "2026-08-12T09:00:00Z",
+      "message": "Fixed in the latest version. This reply is intentionally long so the row-level truncation logic has something to bite into: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "order_id": null,
+      "reactions": []
+    }
+  ]
+}
