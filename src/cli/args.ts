@@ -90,11 +90,19 @@ export function parseArgs(argv: string[], spec: CommandSpec): Parsed {
   }
 
   if (!help) {
-    const required = (spec.args ?? []).filter((a) => a.required);
+    const allArgs = spec.args ?? [];
+    const required = allArgs.filter((a) => a.required);
     if (positionals.length < required.length) {
       const missing = required[positionals.length]!;
       throw new UsageError(
         `missing required argument <${missing.name}>${forScope(spec)}`,
+        spec.examples[0] ?? `run '${spec.name} --help'`,
+      );
+    }
+    if (positionals.length > allArgs.length) {
+      const extra = positionals.slice(allArgs.length);
+      throw new UsageError(
+        `unexpected argument${extra.length > 1 ? "s" : ""} ${extra.map((a) => `'${a}'`).join(", ")}${forScope(spec)}`,
         spec.examples[0] ?? `run '${spec.name} --help'`,
       );
     }

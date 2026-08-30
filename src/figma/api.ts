@@ -5,6 +5,7 @@ import { AxiError } from "../output/errors.js";
 import { requireToken } from "./token.js";
 
 export const DEFAULT_BASE = "https://api.figma.com";
+const REQUEST_TIMEOUT_MS = 30_000;
 
 export function apiBase(): string {
   return (process.env["FIGMA_API_BASE"] || DEFAULT_BASE).replace(/\/+$/, "");
@@ -75,8 +76,15 @@ async function request(
       method,
       headers,
       body: body === undefined ? undefined : JSON.stringify(body),
+      signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
     });
   } catch (err) {
+    if (err instanceof Error && err.name === "TimeoutError") {
+      throw new AxiError(
+        `Figma API request timed out after ${REQUEST_TIMEOUT_MS / 1000}s (${method} ${path})`,
+        "check https://status.figma.com and retry",
+      );
+    }
     const cause = err instanceof Error ? err.message : String(err);
     throw new AxiError(
       `could not reach the Figma API (${cause})`,
@@ -112,8 +120,14 @@ export async function downloadTo(urlStr: string, filePath: string): Promise<numb
   const { writeFile } = await import("node:fs/promises");
   let res: Response;
   try {
-    res = await fetch(urlStr);
+    res = await fetch(urlStr, { signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS) });
   } catch (err) {
+    if (err instanceof Error && err.name === "TimeoutError") {
+      throw new AxiError(
+        `download timed out after ${REQUEST_TIMEOUT_MS / 1000}s`,
+        "re-run the export; render URLs expire after 30 days",
+      );
+    }
     const cause = err instanceof Error ? err.message : String(err);
     throw new AxiError(`download failed (${cause})`, "re-run the export; render URLs expire after 30 days");
   }

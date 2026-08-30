@@ -78,6 +78,12 @@ export const fileCommand: CommandModule = {
     if (pageFilter && selected.length === 0) {
       print(`pages: 0 pages matching '${pageFilter}' in file ${ref.key} (${pages.length} pages exist)`);
       print(emitList("pages", pages.map((p) => ({ id: p.id, name: p.name })), ["id", "name"]));
+      print(
+        helpBlock([
+          `figma-axi file ${ref.key}  # list all pages without a --page filter`,
+          `figma-axi file ${ref.key} --page <name-or-id>  # retry with a page from the list above`,
+        ]),
+      );
       return 0;
     }
 
