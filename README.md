@@ -34,7 +34,7 @@ The token is never printed, logged, or embedded in output. Running any command w
 
 ## Commands
 
-Every `<key-or-url>` accepts a raw file key or any figma.com file URL (`/design/`, `/file/`, `/board/`, `/proto/`, `/slides/`); the key is the path segment after that. A URL's `?node-id=` is picked up automatically, and node ids may be written `12:34` (API form) or `12-34` (URL form). All output is TOON on stdout; exit codes are 0 success/no-op, 1 error, 2 usage error. Run any command with `--help` for flags, defaults, and examples.
+Every `<key-or-url>` accepts a raw file key or any figma.com file URL (`/design/`, `/file/`, `/board/`, `/proto/`, `/slides/`, `/make/`); the key is the path segment after that. A URL's `?node-id=` is picked up automatically, and node ids may be written `12:34` (API form) or `12-34` (URL form). All output is TOON on stdout; exit codes are 0 success/no-op, 1 error, 2 usage error. Run any command with `--help` for flags, defaults, and examples.
 
 ### `figma-axi file <key-or-url>`
 
